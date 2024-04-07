@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektryka do Aut Zabytkowych</title>
+    <style>
+        body {
+            font-family: Arial, serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #584d3d;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #8c7b5f;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 10px 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #b8a98b;
+        }
+
+        div.section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .image-container {
+            width: calc(50% - 20px);
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            margin-right: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .image-container img:hover {
+            opacity: 0.7; 
+        }
+
+        .image-modal {
+            display: none; 
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); 
+            overflow: auto;
+        }
+
+        .image-modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .close {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ccc;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            width: 48%;
+        }
+
+        form div {
+            margin-bottom: 10px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        form textarea {
+            height: 150px;
+            width: 100%;
+        }
+
+        form button {
+            background-color: #584d3d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        form button:hover {
+            background-color: #8c7b5f;
+        }
+
+        .contact-info {
+            width: 48%;
+        }
+
+        form input{
+            width: 100%;
+        }
+
+        .img-cont img{
+            width: 45%;
+            max-width: 350px;
+            height: auto;
+            display: inline-block;
+        }
+
+        .img-cont p{
+            width: 50%;
+            display: inline-block;
+            text-align: right;
+        }
+
+        #p2{
+            text-align: left;
+            padding-right: 50px;
+        }
+
+        #img2{
+            width: 20%;
+            max-width: 150px;
+        }
+
+        @media screen and (max-width: 640px) {
+            .container {
+                flex-direction: column;
+            }
+            .contact-info {
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+
+            .image-container img {
+                max-width: 100%;
+                margin-right: 0px;
+                margin-bottom: 20px;
+            }
+
+            .image-container{
+                width: 100%;
+            }
+
+            form {
+                width: 100%;
+            }
+
+            .img-cont img{
+                width: 50%;
+                display: inline-block;
+            }
+
+            .img-cont p{
+                width: 50%;
+                display: inline-block;
+                text-align: right;
+            }
+
+            #p2{
+                display: block;
+                width:100%;
+                text-align: justify;
+            }
+
+            #img2{
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 480px){
+            .img-cont img{
+                width: 60%;
+            }
+
+            #img2{
+                display: none;
+            }
+
+            .img-cont p{
+                width: 100%;
+                text-align: justify;
+            }
+        }   
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Elektryka do Aut Zabytkowych</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#/">Strona główna</a></li>
+            <li><a href="#/galeria">Galeria</a></li>
+            <li><a href="#/kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <div id="app"></div>
+
+    <div id="myModal" class="image-modal">
+        <span class="close">&times;</span>
+        <img class="image-modal-content" id="img01" src="#/" alt="#/">
+    </div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const HomePage = () => (
+            <div class="section" id="home-section">
+                <h2>Oferowane usługi</h2>
+                <div class="container">
+                    <div class="img-cont">
+                        <img src="https://www.motorcarclassics.com/galleria_images/1184/1184_main_l.jpg" alt="Zdjęcie auta zabytkowego" />
+                        <p><b>Z ponad dziesięcioletnim doświadczeniem w branży</b>, specjalizuję się w projektowaniu i montażu niestandardowych wiązek elektrycznych do zabytkowych samochodów, zapewniając nie tylko funkcjonalność, ale także zachowanie autentycznego charakteru pojazdu. Oferuję kompleksowe usługi obejmujące projektowanie, produkcję i instalację wysokiej jakości wiązek elektrycznych do najbardziej wymagających zabytkowych aut.</p>
+                    </div>
+                    <div class="img-cont">
+                        <p id="p2">Dzięki zdobytym umiejętnościom oraz ciągłemu rozwojowi w dziedzinie nowoczesnych technologii elektrycznych, mogę zaoferować kompleksowe usługi obejmujące projektowanie, produkcję i instalację wysokiej jakości wiązek elektrycznych do najbardziej wymagających zabytkowych aut. Każda wiązka elektryczna, którą wykonuję, podlega starannemu procesowi kontroli jakości.</p>
+                        <img id="img2" src="https://epompa.pl/pol_pl_Przewod-LGY-1x1mm2-niebieski-8210_1.jpg" alt="Zdjęcie kabla elektrycznego" />
+                    </div>
+                </div>
+            </div>
+        );
+
+        const GalleryPage = () => {
+            const openModal = (event) => {
+                const modal = document.getElementById("myModal");
+                const modalImg = document.getElementById("img01");
+                modal.style.display = "block";
+                modalImg.src = event.target.src;
+
+                const span = document.getElementsByClassName("close")[0];
+                span.onclick = function() {
+                    modal.style.display = "none";
+                };
+            };
+
+            return (
+                <div class="section">
+                    <h2>Galeria</h2>
+                    <div class="container">
+                        <div class="image-container">
+                            <img src="https://rometmotors.pl/uploadfiles/products/0/16966/Wiazka_elektryczna_72717_PREMIUM.jpg" alt="Wiązka 1" onClick={openModal} />
+                        </div>
+                        <div class="image-container">
+                            <img src="https://sklep.kayomoto.pl/7340-large_default/wiazka-elektryczna-kayo-a300.jpg" alt="Wiązka 2" onClick={openModal} />
+                        </div>
+                        <div class="image-container">
+                            <img src="https://czesci.zagielauto.pl/userdata/public/gfx/11641.jpg" alt="Wiązka 3" onClick={openModal} />
+                        </div>
+                        <div class="image-container">
+                            <img src="https://a.assecobs.com/_img/czescimanitou/1f72b21a-90f6-4bcf-ac49-8a7b539924a8/wiazka-elektryczna-silnika-manitou-231242.jpg" alt="Wiązka 4" onClick={openModal} />
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const ContactPage = () => (
+            <div class="section">
+                <h2>Kontakt</h2>
+                <div class="container">
+                    <form>
+                        <div>
+                            <label for="name">Imię:</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div>
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                        <div>
+                            <label for="message">Wiadomość:</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit">Wyślij</button>
+                    </form>
+                    <div class="contact-info">
+                        <h3>Adres: </h3>
+                        <p>ul. Fikcyjna 123, <br /> 00-000 Warszawa</p>
+
+                        <h3>Numer telefonu: </h3>
+                        <p>+48 123 456 789</p>
+
+                        <h3>Adres e-mail: </h3>
+                        <p>kontakt@elektrykazabytkowe.pl</p>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const renderApp = () => {
+            const path = window.location.hash.substr(1);
+            let pageComponent;
+
+            switch (path) {
+                case '/':
+                    pageComponent = <HomePage />;
+                    break;
+                case '/galeria':
+                    pageComponent = <GalleryPage />;
+                    break;
+                case '/kontakt':
+                    pageComponent = <ContactPage />;
+                    break;
+                default:
+                    pageComponent = <HomePage />;
+                    break;
+            }
+
+            ReactDOM.render(pageComponent, document.getElementById('app'));
+        };
+
+        window.addEventListener('hashchange', renderApp);
+        renderApp();
+    </script>
+</body>
+
+</html>
